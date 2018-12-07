@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录清美管理系统</title>
+
+<link href="assert/css/bootstrap.css" rel="stylesheet">
+<link href="assert/css/signin.css" rel="stylesheet">
+
+
+<script src="assert/js/jquery-1.10.2.js"></script>
+<script>
+   
+   //给登录按钮指定事件，给后台发送ajax请求，
+   //$(docmuent).ready(function(){})
+   $(function(){
+	   $("#loginBtn").on('click', function() {				 
+		   
+		   var  uName = $("#name").val();
+		   var  pwd = $("#pwd").val();
+		   $.ajax({
+			   type: "POST",
+			   url: "login.action",
+			   data: "uName="+uName+"&pwd="+pwd,
+			   success: function(msg){
+				   
+				   //eval解析json为js对象，需要加[]
+				   var ret = eval('['+msg+']')[0];
+				   if (ret.retCode ==1)				   
+			          window.location.href= "table.html";
+				   else alert(ret.msg);
+			   }
+			});
+		   
+			
+		} );
+   });
+   
+   
+	
+	
+	</script>
+	
+	
+</head>
+
+<body>
+
+<div class="signin">
+	<div class="signin-head"><img src="images/test/head_120.png" alt="" class="img-circle"></div>
+	<form class="form-signin" role="form">
+		<input id="name" type="text" class="form-control" placeholder="用户名" required autofocus />
+		<input id="pwd" type="password" class="form-control" placeholder="密码" required />
+		<button id="loginBtn" class="btn btn-lg btn-warning btn-block" type="button">登录</button>
+		<label class="checkbox">
+			<input type="checkbox" value="remember-me"> 记住我
+		</label>
+	</form>
+</div>
+
+<div style="text-align:center;">
+<p>技术支持:<a href="http://www.ruan31.net/" target="_blank">软31班项目租</a></p>
+</div>
+</body>
+</html>

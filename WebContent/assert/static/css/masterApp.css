@@ -1,0 +1,139 @@
+html,body {
+	background-color: #DFDFDF;
+	font-size: 14px;
+}
+
+a {
+	color: #ffffff;
+}
+
+td a{
+	color:black;
+}
+
+.header {
+	 
+	 
+	width: 80%;
+	height: 130px;
+	background-color: #666;
+	margin:auto;
+}
+
+.header-title {
+	margin-left: 15px;
+	line-height: 40px;
+	font-size: 18px;
+	color: #fcfcfc;
+}
+
+.logoDiv {
+	height: 90px;
+	width: 100%;
+}
+
+ 
+
+.naviDiv {
+	height: 40px;
+	width: 100%;
+}
+
+.container {
+	 
+	 
+	height:auto;
+	 margin:auto;
+	left: 10%;
+	width: 80%;
+	background-color: #fff;
+}
+
+.productCategoryDiv {
+	float: left;
+	width: 15%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #aaa;
+}
+
+
+
+.content {
+	 float:left;
+	 left:16%;
+	 width : 70%; 
+	 height : 100%;
+	 overflow: hidden;
+	 
+}
+
+.technicalReferenceDiv{
+	 
+	float: left;
+	width: 15%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #bbb;
+}
+
+.footer{
+	 
+	width: 80%;
+	
+	 
+	 left:10%;
+	 
+	background-color: #bbb;
+	clear:both;
+	margin:auto;
+}
+
+
+.loginname{color:lightblue;}
+
+.pure-g>div {
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.pure-g .pure-table {
+	width: 100%;
+}
+
+.pure-g .pure-table .pure-img {
+	max-width: 48px;
+	max-height: 48px;
+}
+
+.con-center h3,.con-center p {
+	margin: 10px;
+	text-align: center;
+}
+
+.pure-form fieldset {
+	margin: 15px 200px;
+}
+
+.pure-form fieldset legend {
+	margin: 15px 0;
+	font-weight: bold;
+}
+
+.pure-form fieldset .pure-control-group {
+	margin: 15px 0;
+}
+
+.pure-form fieldset input[type="text"],.pure-form fieldset select {
+	width: 200px;
+}
+
+input.ng-invalid {
+	color: #b94a48;
+	border-color: #e9322d;
+}
+
+.val-error {
+	font-size: 12px;
+	color: #ec0000;
+}

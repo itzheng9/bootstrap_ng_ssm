@@ -1,0 +1,70 @@
+<div class="row">
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+			<button ng-click="gotoAdd()" class="col-md-2 btn btn-default"
+				class="btn btn-default">新增</button>
+			<span class="col-md-4"></span> 
+			<input class="col-md-4"  ng-model="username"	placeholder="请输入查询条件" />
+			<button class="col-md-2 btn btn-default" 
+			        ng-click="getUserList()" >查询</button>
+		</div>
+	</div>
+
+
+
+
+
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<!-- Advanced Tables -->
+		<div class="panel panel-default">
+			<div class="panel-heading">项目列表</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered table-hover"
+						id="dataTables-example">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>项目名称</th>
+								<th>启动日期</th>
+								<th>截止日期</th>
+								<th>PM</th>
+								<th>说明</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						 
+    
+						<tbody>
+
+							<tr class="odd gradeX" ng-repeat="ppp in projectList">
+								<td class="left">{{ppp.id}}</td>
+								<td>{{ppp.name}}</td>
+								<td>{{ppp.begintime }}</td>
+								<td>{{ppp.endtime }}</td>
+								<td class="center">{{ppp.master}}</td>
+								<td>{{ppp.descc}}</td>
+								<td>
+								  
+									<button class="btn btn-default  "  ng-click="editProject(ppp.id)">编辑</button>
+									<button class="btn btn-default"  ng-click="deleteProject(ppp.id)">删除</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+
+			</div>
+			<!-- <div class="panel-body"> -->
+		</div>
+	</div>
+</div>
+
+
+<div id="pageFooter"></div>
+ 

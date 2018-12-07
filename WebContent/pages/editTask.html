@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">任务信息维护</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form name="ffff" role="form">
+                            <input type="hidden" ng-model="task.id"/>
+                            <div class="form-group">
+                                <label>任务名称</label>
+                                <input class="form-control"   ng-model="task.name"
+                                       placeholder="长度6---11个字符"
+                                       minlength="6"   maxlength="11" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>项目</label>
+                                <input class="form-control"   ng-model="task.pid"  />
+                            </div>
+
+                            <div class="form-group">
+                                <label>开始日期</label>
+                                <input type="date" class="form-control"
+                                        ng-model="task.createtime" />
+                            </div>
+                            <div class="form-group">
+                                <label>截止日期</label>
+                                <input  type="date" class="form-control"
+                                         ng-model="task.finishtime"
+                                                         placeholder="项目截止日期 格式：YYYY-MM-DD" />
+                            </div>
+                            <div class="form-group">
+                                <label>执行人</label>
+
+                                 <select    ng-model="task.actionuid"    >
+                                      <option ng-repeat="u in uList" ng-selected="task.actionuid==u.id"   value="{{u.id}}" > {{u.name}} </option>
+                                 </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>任务描述</label> <textarea  class="form-control"
+                                                         ng-model="task.descc"
+                                                             placeholder="项目描述" />
+                            </div>
+
+
+                            <button ng-disabled="ffff.$invalid"
+                                    type="buttom" ng-click="saveTask();"
+                                    class="btn btn-default">保存
+                            </button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

@@ -1,0 +1,50 @@
+ {{result}}
+
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">人力资源登记</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-6">
+						<form name="ffff" role="form">
+						     <input  type="hidden"  ng-model="id"  />
+							<div class="form-group">
+								<label>登录账号</label> <input class="form-control"
+									ng-model="loginname" placeholder="长度6---11个字符"   minlength="6" maxlength="11">
+							</div>
+							<div class="form-group">
+								<label>口令</label> <input type="pasword"  class="form-control" ng-model="pwd">
+							</div>
+							<div class="form-group">
+								<label>人名</label> <input class="form-control" ng-model="name"
+									placeholder="输入人名">
+							</div>
+							<div class="form-group">
+								<label>岗位</label> <input class="form-control" ng-model="role">
+								 
+							</div>
+							<div class="form-group">
+								<label>邮箱</label> <input type="email"  class="form-control"
+									ng-model="email" placeholder="格式：abc@ms.com.cn">
+							</div>
+
+
+
+							<button  ng-disabled="ffff.$invalid"
+							 type="buttom" ng-click="alert('ssss');saveUser();"
+								class="btn btn-default"  >保存</button>
+							<button type="reset" class="btn btn-default">重置</button>
+						</form>
+					</div>
+
+				</div>
+				<!-- /.row (nested) -->
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-12 -->
+</div>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="D:\workStruts\sp5\WebContent\WEB-INF\lib\mysql.jar" />
+  <context id="context1" >  
+    <property name="suppressTypeWarnings" value="true" />
+
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+
+        <!-- 去除自动生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+    connectionURL="jdbc:mysql://localhost:3306/pm" userId="root" password="1234" />
+    <javaModelGenerator targetPackage="co.qingmei.pm.entity" 
+                  targetProject="pm" />
+    <sqlMapGenerator targetPackage="co.qingmei.pm.mapper" 
+    targetProject="pm" />
+    <javaClientGenerator targetPackage="co.qingmei.pm.dao" targetProject="pm" type="XMLMAPPER" />
+    
+    
+    <table schema="pm" tableName="employee"  >
+    </table>
+    <table schema="pm" tableName="project"  >
+    </table>
+    <table schema="pm" tableName="task"  >
+    </table>
+    <table schema="pm" tableName="bug"  >
+    </table>
+   
+   
+     
+    
+     
+  </context>
+</generatorConfiguration>

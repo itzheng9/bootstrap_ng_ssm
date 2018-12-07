@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="pmApp">
+<head>
+<meta charset="UTF-8">
+<title>清美项目管理工具 1.0</title>
+
+<script type="text/javascript" src="js/angular-1.5.8.js"></script>
+ <script type="text/javascript" src="js/angular-route.js"></script>
+ <script type="text/javascript" src="js/angular-sanitize.js"></script>
+		
+ 
+ 
+ <script src="app/ngApp.js"></script> 
+ <script src="controller/userCtrl.js"></script>
+ 
+ 
+</head>
+<body>
+
+ <a href="#/user/login">登录</a>
+ <a href="#/user/register">注册用户</a>
+ <a href="#/user/projectList">项目列表</a>
+ <a href="#/user/projectForm">项目维护</a>
+ 
+ <div  ng-view>
+    
+ </div>
+
+
+   
+</body>
+</html>

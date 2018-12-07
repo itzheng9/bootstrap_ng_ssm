@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MagicBoard</title>
+
+
+    <style type="text/css">
+
+        .blank{background-color: #DDDDDD;}
+        td {background-color: #00a2d4;
+        font-size:33px;
+        text-align: center;}
+        table {width:480px;height:600px;}
+    </style>
+
+    <script type="text/javascript" src="../assert/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+       var board =  {
+            blink:function (div,times){
+
+                div.animate({
+                    opacity: times%2==1?'.5':'1'
+                }, 100,function () {
+                    if(times>0){
+                        board.blink(div,--times);
+                    }
+                });
+            },
+
+           randomInit:function(tds){
+                var allNumber="abcdefghijk";
+                var i=0;
+                while(allNumber.length>0){
+                    var randomInt = Math.ceil( Math.random()*allNumber.length )-1;
+                    var char = allNumber[randomInt];
+                    //console.log(char);
+                    tds[i].innerText = char;
+                    tds[i].tdIndex=i;
+                    i++;
+                    allNumber = allNumber.replace(char,'');
+                }
+
+                tds[i].tdIndex= i;//初始化最后一个
+
+               $('table tr td').click(function (td) {
+                   board.move(td);
+               });
+           },
+           move:function (td) {
+               var  idx =td.currentTarget.tdIndex;
+               // console.log(idx +',  上:' + (idx-3) +' 左:' +
+               //     (idx-1) +' 右:' +
+               //     (idx+1) +' 下:' +
+               //     (idx+3)
+               // );
+
+               if (board.canMove(idx-3,td) ||
+                   board.canMove(idx-1,td) ||
+                   board.canMove(idx+1,td) ||
+                   board.canMove(idx+3,td) ){
+                   board.moveIt(td);
+               }else{
+                   board.blink( $(td.currentTarget) ,3);
+               }
+           },
+           moveIt:function (fromTd) {
+               var toTd = $('.blank');
+               var fromText = fromTd.currentTarget.innerText;
+               //移动数字
+               toTd[0].innerText = fromText;
+               fromTd.currentTarget.innerText='';
+
+               //加样式
+               toTd.removeClass('blank');
+               //$(fromTd.currentTarget).fadeTo("slow", 0.01,function () {
+                   $(fromTd.currentTarget).addClass('blank');
+              // });
+               //动画效果
+               //div.animate({top: parseInt(div.css('top').substring(0,div.css('top').length-2))+50+'px'}, "slow");
+
+           },
+
+           canMove:function(tdsIdx,td){
+                if(tdsIdx>=0 && tdsIdx < $('table tr td').length){
+                    if ($('table tr td')[tdsIdx] ==$('.blank')[0] ){
+                        return true;
+                    }
+                }
+                return false;
+           }
+        };
+
+        $(function ($) {
+            $("#testImg").click( function () {
+                //board.blink($("#testImg"),3)
+                //board.moveDown($("#testImg") )
+                board.randomInit($('table tr td'));
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="testImg"   >开始</button><br />
+
+    <table border="1" >
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td  class="blank"></td></tr>
+
+    </table>
+</body>
+</html>
